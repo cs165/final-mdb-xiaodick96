@@ -4,12 +4,13 @@
   "description": "CS193X Final Project",
   "main": "server.js",
   "engines": {
+    "node": "^7.0.0"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "express-handlebars": "^3.0.0",
-    "mongodb": "^2.2.27"
+    "mongodb": "^2.2.27",
+    "node-fetch": "^2.6.0"
   },
   "scripts": {
     "start": "node server.js",
