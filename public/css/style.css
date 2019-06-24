@@ -1,150 +1,78 @@
 /**
  * TODO(you): Add the CSS necessary to complete your final project.
  **/
-* {
-    margin: 0;
-    padding: 0;
+ body{
+   background-color: #fdf5f5;
+   margin:0;
+ }
+#main-page{
+    display:flex;
+    text-align:center;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    margin:0;
+    padding:0;
 }
-
-:root {
-    --height-view: 100vh;
-    --touch-size: calc(var(--height-view) - 60px);
+h1{
+    font-size:30pt;
+}    
+h2{
+    font-size:12pt;
 }
-
-body {  
-    width: 100vw;
-    height: var(--touch-size);
-    background-color: #ffeebb;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: center;
-
-    user-select: none;
-    -webkit-user-select: none; 
-}
-
-h1 {
-    font-family: Merriweather;
-    font-size: 30pt;
-}
-
-h3{
-    font-family: Montserrat;
-    font-size: 12pt;
-}
-
-#menu, #main {
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-#menu h1, #menu h3 {
-    margin: 50px 0;
-}
-
-#choices {
-    display: inline-block;
-}
-
-#choices div {
-    margin-bottom: 20px;
-    padding: 20px 50px;
-    font-family: Montserrat;
-    font-size: 12pt;
-    font-weight: bold;
+#createbtn{
     background-color: white;
+    font-size:14pt;
+    display: inline-block;
+    padding:20px;
     border: 2px solid black;
-    box-sizing: border-box;
-    cursor: pointer;
+}
+#container{
+    height:100vh;
+    margin-bottom:-100px;
+    margin-top:50px;
+    display:flex;
+    text-align:center;
+    flex-direction:column;
+    align-items:center;
+    
 }
 
-#choices div:hover {
-    color: white;
-    background-color: black;
-    transition: 0.25s;
+#date{
+    font-size:35pt;
+    text-align:center;
+    border-bottom: 2px solid black;
+    padding-bottom: 0px;
+    margin-bottom:20px;
 }
+#editblock{
+    background-color:white;
+    opacity:0.5;
+    width:75%;
+    height:70%;
+    margin-top:30px;
+    font-size:25pt;
+    color:black;
 
-#main h1 {
-    margin-top: 80px;
-    padding: 0 50px 10px 50px;
-    border-bottom: 3px solid black;
-    display: inline-block;
 }
-
-#main h3 {
-    margin: 20px 0 50px 0;
-    font-size: 14pt;
+#results{
+    width:75%; 
+    margin-top:30px;
+    font-size:25pt;
+    color:black;
 }
-
-#edit {
-    width: 80vw;
-    height: 40vh;
-    font-family: Merriweather;
-    font-size: 14pt;
-    font-weight: bold;
-    line-height: 1.5em;
-    text-align: left;
-    word-wrap: break-word;
-    background-color: rgba(255, 255, 255, 0.5);
-    position: absolute;
-    top:150px;
+#footerbtn{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background-color:white;
 }
-
-#diary {
-    width: 80vw;
-    font-family: Merriweather;
-    font-size: 14pt;
-    font-weight: bold;
-    line-height: 1.5em;
-    text-align: left;
-    white-space: pre;
-    word-wrap: break-word;
-    display: inline-block;
+#checkbtn{
+    display:flex;
+    justify-content:center;
+    background-color:white;
 }
-
-#ctrlbar {
-    width: 100vw;
-    height: 60px;
-    background-color: white;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    bottom: 0;
-}
-
-#home {
-    margin-top: 12px;
-    font-family: Montserrat;
-    font-size: 18pt;
-    font-weight: bold;
-}
-
-#prev, #next, #home.save {
-    margin-top: 8px;
-    width:40px;
-    height:40px;
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-#prev {
-    background-image: url("../images/back.png");
-}
-
-#next {
-    background-image: url("../images/forward.png");
-}
-
-#home.save {
-    background-image: url("../images/checked.png");
-}
-
-.inactive {
-    display: none !important;
+.inactive{
+     display: none !important;
 }
