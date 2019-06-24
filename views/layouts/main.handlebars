@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title>CS193x Final Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/prompts.js" defer></script>
+    {{#each js}}
+      <script src="/js/{{this}}" defer></script>
+    {{/each}}
+  </head>
+  <body>
+    {{{ body }}}
+  </body>
+</html>
