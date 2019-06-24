@@ -1,5 +1,5 @@
  body{
-   background-color: #30D5C8;
+   background-color:#fdf5f5;
    margin:0;
  }
 #main-page{
@@ -14,14 +14,12 @@
 }
 h1{
     font-size:60pt;
-	color:white;
 }    
 h2{
     font-size:18pt;
 }
 #createbtn{
-    background-color: grey;
-	color:white;
+    background-color: white;
     font-size:14pt;
     display: inline-block;
     padding:20px;
@@ -39,7 +37,8 @@ h2{
 }
 
 #date{
-    font-size:35pt;
+    font-size:30pt;
+	font-style:https://fonts.google.com/specimen/Merriweather;
     text-align:center;
     border-bottom: 2px solid black;
     padding-bottom: 0px;
@@ -51,7 +50,8 @@ h2{
     width:75%;
     height:70%;
     margin-top:30px;
-    font-size:35pt;
+	font-style:https://fonts.google.com/specimen/Merriweather;
+    font-size:14pt;
     color:black;
 
 }
@@ -63,9 +63,10 @@ h2{
 }
 #footerbtn{
     display:flex;
+	font-style:https://fonts.google.com/specimen/Montserrat;
     align-items:center;
     justify-content:space-between;
-    background-color:grey;
+    background-color:white;
 }
 #checkbtn{
     display:flex;
