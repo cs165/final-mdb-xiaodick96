@@ -1,2 +1,2 @@
-var menuscreen = new Menu();
+var menuscreen = new Menuview();
 
