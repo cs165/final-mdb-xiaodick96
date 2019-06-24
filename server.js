@@ -1,43 +1,58 @@
-const express = require('express');
 const bodyParser = require('body-parser');
-const exphbs  = require('express-handlebars');
-
-const api = require('./routes/api.js');
-const views = require('./routes/views.js');
-
-const app = express();
-const jsonParser = bodyParser.json();
-const hbs = exphbs.create();
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-
-app.use(express.static('public'));
+const express = require('express');
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 
+const app = express();
+const jsonParser = bodyParser.json();
+
+app.use(express.static('public'));
+
+let db = null;
 async function main() {
   const DATABASE_NAME = 'cs193x-db';
   const MONGO_URL = `mongodb+srv://404410007:<password>@final-project-ex1lc.mongodb.net/test?retryWrites=true&w=majority`;
-  
-  let cli = await MongoClient.connect(process.env.MONGODB_URI || MONGO_URL);
-  let db = cli.db(DATABASE_NAME);
 
-  const diaries = db.collection('diaries');
-  const entries = db.collection('entries');
-
-  function setCollection(req, res, next) {
-    req.diaries = diaries;
-    req.entries = entries;
-    next();
-  }
-  app.use(setCollection);
-  app.use(api);
-  app.use(views);
-
+  db = await MongoClient.connect(process.env.MONGODB_URI || MONGO_URL);
   const port = process.env.PORT || 3000;
   await app.listen(port);
   console.log(`Server listening on port ${port}!`);
+  
 };
 
 main();
+
+async function onGet(req, res) {
+  console.log(`Get data!`);
+  const day = req.params.day;
+  
+  var query = { day: day };
+  const collection = db.collection('diary');
+  const options = {'_id' : -1};
+  const result = await collection.find({day:day}).sort({_id:-1}).limit(1).toArray();
+  console.log(result);
+  console.log(result[0].content);
+  const response = {
+    day: day,
+    content:result[0].content
+  };
+  console.log(response);
+  res.json(response);
+}
+app.get('/get/:day', onGet);
+
+async function onPost(req, res) {
+    console.log("post!");
+  const day = req.body.day;
+  const content = req.body.content;
+  const data = {
+      day: day,
+      content: content
+  }
+  console.log(data);
+  const collection = db.collection('diary');
+  const response = await collection.insertOne(data);
+  res.json({response :  content});
+}
+app.post('/save', jsonParser, onPost);
